@@ -25,6 +25,19 @@ Communicates directly with the adapter over your local network using its HTTP AP
 
 ## Quick Start
 
+### Option A: Download the pre-built JAR
+
+```bash
+# Download the latest release
+curl -L -o fujitsu-heat-pump-cli.jar \
+  https://github.com/wizaord/fujitsu-heat-pump-cli/releases/latest/download/fujitsu-heat-pump-cli.jar
+
+# Run it (requires JDK 17+)
+java -jar fujitsu-heat-pump-cli.jar status
+```
+
+### Option B: Build from source
+
 ### 1. Discover the heat pump on your network
 
 ```bash

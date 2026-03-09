@@ -1,16 +1,14 @@
-name: CI
+name: Release
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    tags: [ 'v*' ]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,11 +21,17 @@ jobs:
 
       - uses: gradle/actions/setup-gradle@v4
 
-      - name: Compile
-        run: ./gradlew classes integrationTestClasses
-
       - name: Integration tests
         run: ./gradlew integrationTest
 
       - name: Build fat JAR
         run: ./gradlew shadowJar
+
+      - name: Rename JAR
+        run: cp build/libs/*-all.jar fujitsu-heat-pump-cli.jar
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: fujitsu-heat-pump-cli.jar

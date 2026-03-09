@@ -10,6 +10,7 @@ val assertjVersion: String by project
 plugins {
     kotlin("jvm") version "2.2.0"
     kotlin("plugin.serialization") version "2.2.0"
+    id("com.gradleup.shadow") version "9.0.0-beta12"
     application
 }
 
