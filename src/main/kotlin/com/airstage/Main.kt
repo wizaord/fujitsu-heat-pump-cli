@@ -41,8 +41,10 @@ fun main(args: Array<String>) {
     val useCase = HeatPumpService(gateway)
     val cli = buildClimCli(useCase)
 
+    val filteredArgs = args.filterGlobalOptions("--ip", "--device-id")
+
     try {
-        cli.main(args)
+        cli.main(filteredArgs)
     } finally {
         gateway.close()
     }
@@ -58,4 +60,23 @@ private fun Array<String>.getOptionValue(option: String): String? {
         if (this[i].startsWith(prefixed)) return this[i].removePrefix(prefixed)
     }
     return null
+}
+
+/**
+ * Retourne les args sans les options globales consommées (--option valeur ou --option=valeur).
+ */
+private fun Array<String>.filterGlobalOptions(vararg options: String): Array<String> {
+    val result = mutableListOf<String>()
+    var i = 0
+    while (i < size) {
+        val arg = this[i]
+        val matchedOption = options.firstOrNull { arg == it || arg.startsWith("$it=") }
+        if (matchedOption != null) {
+            if (arg == matchedOption && i + 1 < size) i++ // skip value too
+        } else {
+            result.add(arg)
+        }
+        i++
+    }
+    return result.toTypedArray()
 }
