@@ -1,1 +1,1 @@
-rootProject.name = "api-clim-salon"
+rootProject.name = "fujitsu-heat-pump-cli"

@@ -1,4 +1,4 @@
-# airstage-local-cli
+# fujitsu-heat-pump-cli
 
 A Kotlin CLI tool to control Fujitsu heat pumps locally via the AirStage WiFi adapter (UTY-TFSXH3), with no cloud dependency.
 
