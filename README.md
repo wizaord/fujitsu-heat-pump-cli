@@ -53,17 +53,17 @@ This scans your local subnet, finds the adapter, and saves its IP to `~/.airstag
 ```
 
 ```
-+-------------------------------------+
-|       PAC AirStage Status            |
-+-------------------------------------+
-| Power         : OFF                  |
-| Mode          : HEAT                 |
-| Fan           : AUTO                 |
-| Target temp   : 22.0 C              |
-| Indoor temp   : 23.3 C              |
-| Outdoor temp  : 18.0 C              |
-| Model         : AGYG14KVCA          |
-+-------------------------------------+
+┌─────────────────────────────────────┐
+│       État de la PAC AirStage        │
+├─────────────────────────────────────┤
+│ Alimentation  : OFF                  │
+│ Mode          : HEAT                 │
+│ Ventilateur   : AUTO                 │
+│ Temp. cible   : 22.0°C              │
+│ Temp. intér.  : 23.3°C              │
+│ Temp. extér.  : 18.0°C              │
+│ Modèle        : AGYG14KVCA          │
+└─────────────────────────────────────┘
 ```
 
 ### 3. Turn on / off
